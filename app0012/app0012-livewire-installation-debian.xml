@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0">
+<info>
+  <title>Application Note 0012</title>
+  <subtitle>Installing and Configuring the LiveWire Audio-IP Driver on Debian</subtitle>
+  <author>
+    <personname>
+      <firstname>Fred</firstname>
+      <surname>Gleason</surname>
+      <email>fredg@paravelsystems.com</email>
+    </personname>
+  </author>
+</info>
+
+<sect2>
+  <title>Scope</title>
+  <para>
+    This application note details the procedures for installing and
+    configuring the LiveWire Audio-IP driver on  Debian distributions
+    running on Intel 32 bit [i386] and 64 bit [x86_64] architectures.
+  </para>
+</sect2>
+
+<sect2>
+  <title>Prerequisites</title>
+  <orderedlist>
+    <listitem>
+      <para>
+	A system running one of the following Linux distributions:
+      </para>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Debian 7.x
+	  </para>
+	</listitem>
+      </orderedlist>
+    </listitem>
+    <listitem>
+      <para>
+	An installation serial number from Paravel Systems for either the
+	single channel or multichannel driver.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+	Internet access.
+      </para>
+    </listitem>
+  </orderedlist>
+</sect2>
+
+<sect2>
+  <title>Procedure</title>
+  <orderedlist>
+    <listitem>
+      <para>
+	Download the installer script from 
+	<link xref="http://downloads.paravelsystems.com/ubuntu/dists/precise/axia-alsa-installer">http://downloads.paravelsystems.com/ubuntu/dists/precise/axia-alsa-installer</link>.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+	Open 'Terminal' and run the following commands:
+      </para>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    <command>cd</command> 
+	    <replaceable>directory-where-download-was-saved</replaceable>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    <command>chmod 755 axia-alsa-installer</command>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    <command>sudo ./axia-alsa-installer</command>
+	  </para>
+	</listitem>
+      </orderedlist>
+    </listitem>
+    <listitem>
+      <para>
+	The system will prompt 
+	<computeroutput>This will install the Axia LiveWire driver on this
+	system. Is this what you want (Y/n)?</computeroutput>  Enter 
+	<userinput>y</userinput> and press <userinput>ENTER</userinput>.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+	The script will automatically add a new software repository source for
+	the driver.  When finished, it will prompt something like
+      </para>
+      <para>
+	<computeroutput>
+	  The following NEW packages will be installed: axia-alsa axia-alsa-gui
+	  0 upgraded, 2 newly installed, 0 to remove
+	  and 188 not upgraded. Need to get 0 B/190 kB of archives. After
+	  this operation, 525 kB of additional disk space will be used. Do
+	  you want to continue [Y/n]?</computeroutput>
+      </para>
+      <para>
+	Enter a <userinput>y</userinput> and press <userinput>ENTER</userinput>.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+	The system will now open a dialog box asking for the installation
+	serial number.  Enter a valid serial number and click
+	<userinput>OK</userinput>.
+      </para>
+      <imagedata align="center" scale="75" fileref="serial_number_dialog.png" />
+    </listitem>
+    <listitem>
+      <para>
+	The system may need to build a custom kernel module.  If so, it will
+	display a dialog.  Click <userinput>Yes</userinput>.
+      </para>
+      <para>
+	<imagedata align="center" scale="75" fileref="build_kernel_dialog.png" />
+      </para>
+      <para>
+	<imagedata align="center" scale="75" fileref="kernel_built_dialog.png" />
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+	The main LiveWire configuration screen should now appear.
+	Select the network interface that is connected to the LiveWire
+	network in the <computeroutput>Livewire Network Card</computeroutput>
+	dropdown list (a reboot may be necessary if this value is changed).
+	Set the desired LiveWire Source, Destination and Channel numbers, and
+	click <userinput>Save</userinput>.  The driver should now be ready for
+	service.
+     </para>
+    </listitem>
+  </orderedlist>
+</sect2>
+
+<revhistory>
+  <revision>
+    <revnumber>2</revnumber>
+    <date>2014-01-24</date>
+    <authorinitials>ffg</authorinitials>
+    <revremark>Updated for Ubuntu 12.04.</revremark>
+  </revision>
+  <revision>
+    <revnumber>1</revnumber>
+    <date>2013-06-19</date>
+    <authorinitials>ffg</authorinitials>
+    <revremark>Initial document creation.</revremark>
+  </revision>
+</revhistory>
+
+</article>
